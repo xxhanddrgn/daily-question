@@ -1,0 +1,207 @@
+/* ── Minimal Custom CSS (Tailwind handles the rest) ── */
+
+/* Animations */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes floatBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes gentlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+/* Rank badge styles */
+.rank-badge-1 {
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite, gentlePulse 2s ease-in-out infinite;
+    color: #5D3A00;
+    text-shadow: 0 1px 2px rgba(255,215,0,0.5);
+    box-shadow: 0 4px 15px rgba(255,165,0,0.4), 0 0 20px rgba(255,215,0,0.2);
+}
+
+.rank-badge-2 {
+    background: linear-gradient(135deg, #7EC8F8, #4A9FE5, #7EC8F8);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite, gentlePulse 2.5s ease-in-out infinite;
+    color: #1A3A5C;
+    text-shadow: 0 1px 2px rgba(74,159,229,0.4);
+    box-shadow: 0 4px 15px rgba(74,159,229,0.35), 0 0 18px rgba(126,200,248,0.2);
+}
+
+.rank-badge-3 {
+    background: linear-gradient(135deg, #F8A4D0, #E66DB2, #F8A4D0);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite, gentlePulse 2.5s ease-in-out infinite;
+    color: #5C1A3A;
+    text-shadow: 0 1px 2px rgba(230,109,178,0.4);
+    box-shadow: 0 4px 15px rgba(230,109,178,0.35), 0 0 18px rgba(248,164,208,0.2);
+}
+
+.rank-card-1 {
+    border-color: #FFD700;
+    background: linear-gradient(135deg, #FFFDE0, #FFF8C4);
+    box-shadow: 0 4px 20px rgba(255,215,0,0.2), 0 0 30px rgba(255,165,0,0.08);
+}
+
+.rank-card-2 {
+    border-color: #7EC8F8;
+    background: linear-gradient(135deg, #EAF5FF, #D4ECFF);
+    box-shadow: 0 4px 20px rgba(74,159,229,0.15), 0 0 25px rgba(126,200,248,0.08);
+}
+
+.rank-card-3 {
+    border-color: #F8A4D0;
+    background: linear-gradient(135deg, #FFF0F8, #FFE0F0);
+    box-shadow: 0 4px 20px rgba(230,109,178,0.15), 0 0 25px rgba(248,164,208,0.08);
+}
+
+.animate-slideUp { animation: slideUp 0.3s ease-out both; }
+.animate-heartPop { animation: heartPop 0.3s ease-out; }
+
+/* Grade avatar gradient colors */
+.grade-1 { background: linear-gradient(135deg, #FF9B9B, #EE8A8A); }
+.grade-2 { background: linear-gradient(135deg, #FFE08A, #F0C730); color: #5D4200 !important; }
+.grade-3 { background: linear-gradient(135deg, #7FE3FA, #30C9E8); }
+.grade-4 { background: linear-gradient(135deg, #FFBEF7, #F380E8); }
+.grade-5 { background: linear-gradient(135deg, #89BFFF, #4E96DE); }
+.grade-6 { background: linear-gradient(135deg, #C0BBFE, #8C83E7); }
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Gowun Dodum', sans-serif;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: bottom 0.3s ease;
+    z-index: 1000;
+    max-width: 90%;
+    text-align: center;
+    color: white;
+}
+.toast.show { bottom: 30px; }
+.toast.success { background: linear-gradient(135deg, #8FE6B0, #5BB88A); }
+.toast.error { background: linear-gradient(135deg, #FF9B9B, #E07070); }
+
+/* PIN input special styling */
+#pin {
+    letter-spacing: 8px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Screen toggle helper */
+.screen { }
+
+/* Checkbox accent */
+input[type="checkbox"] {
+    accent-color: #FFB87A;
+}
+
+/* Grade bar fill transition */
+.grade-bar-fill {
+    transition: width 0.5s ease;
+}
+
+/* ── Hall of Fame Header ── */
+.hall-header {
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 30%, #0F3460 60%, #1A1A2E 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hall-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(2px 2px at 15% 25%, rgba(255,215,0,0.7), transparent),
+        radial-gradient(2px 2px at 85% 15%, rgba(255,215,0,0.5), transparent),
+        radial-gradient(1.5px 1.5px at 45% 80%, rgba(255,215,0,0.6), transparent),
+        radial-gradient(2px 2px at 75% 70%, rgba(255,215,0,0.4), transparent),
+        radial-gradient(1.5px 1.5px at 25% 60%, rgba(255,215,0,0.5), transparent),
+        radial-gradient(1px 1px at 55% 35%, rgba(255,215,0,0.6), transparent),
+        radial-gradient(1.5px 1.5px at 90% 50%, rgba(255,215,0,0.3), transparent),
+        radial-gradient(1px 1px at 10% 90%, rgba(255,215,0,0.5), transparent);
+    animation: starTwinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes starTwinkle {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.hall-title {
+    background: linear-gradient(135deg, #FFD700, #FFC107, #FFE082, #FFD700, #FFA000);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShimmer 4s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(255,215,0,0.4));
+}
+
+@keyframes goldShimmer {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+
+.hall-crown {
+    display: inline-block;
+    color: #FFD700;
+    filter: drop-shadow(0 2px 6px rgba(255,215,0,0.5));
+    animation: gentlePulse 2.5s ease-in-out infinite;
+}
+
+.hall-divider {
+    background: linear-gradient(90deg, transparent, #FFD700, #FFC107, #FFD700, transparent);
+    height: 2px;
+    opacity: 0.5;
+}
+
+/* ── Topic Banner ── */
+.topic-banner {
+    background: linear-gradient(135deg, #2E7D32 0%, #43A047 30%, #66BB6A 60%, #388E3C 100%);
+    border: 2px solid rgba(255,255,255,0.15);
+    box-shadow:
+        0 8px 25px rgba(46,125,50,0.35),
+        0 3px 10px rgba(0,0,0,0.12),
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        inset 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+.topic-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(255,255,255,0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255,255,255,0.08), transparent);
+    pointer-events: none;
+}
