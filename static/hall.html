@@ -157,7 +157,15 @@
             return div.innerHTML;
         }
 
-        document.addEventListener('DOMContentLoaded', loadHallOfFame);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadHallOfFame();
+            // 30초마다 자동 새로고침
+            setInterval(loadHallOfFame, 30000);
+            // 탭으로 돌아올 때 즉시 새로고침
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden) loadHallOfFame();
+            });
+        });
     </script>
 </body>
 </html>

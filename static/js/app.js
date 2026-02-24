@@ -78,6 +78,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupPastDates();
     setupHomeButton();
     updateDateDisplay();
+
+    // 30초마다 자동 새로고침 (로그인 상태일 때만)
+    setInterval(() => {
+        if (document.getElementById('main-screen').style.display !== 'none') {
+            loadQuestions();
+        }
+    }, 30000);
+
+    // 탭으로 돌아올 때 즉시 새로고침
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && document.getElementById('main-screen').style.display !== 'none') {
+            loadQuestions();
+            loadTopic();
+        }
+    });
 });
 
 // ── Login ──
